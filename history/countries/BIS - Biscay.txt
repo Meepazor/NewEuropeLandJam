@@ -12,6 +12,8 @@ add_ideas = BIS_extremist_unions
 add_ideas = BIS_great_war_spectator
 add_ideas = BIS_inefficient_economy
 
+set_variable = { var = BIS_year_loc_year value = 0 }
+
 set_politics = {
 	ruling_party = democratic
 	last_election = "2234.1.15"
@@ -151,12 +153,23 @@ if = {
 	}
 }
 
+recruit_character = BIS_odilon_trudeau_comm
+
 create_country_leader = {
-	name = "Odilon Trudeau"
+	name = BIS_odilon_trudeau
 	picture = GFX_portrait_BIS_democratic
 	expire = "1965.1.1"
 	ideology = socialism
 	traits = {
 		popular_socialist_politician
+	}
+}
+create_country_leader = {
+	name = "Gautier Perrault"
+	picture = GFX_portrait_BIS_communism
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		veteran_trade_unionist
 	}
 }

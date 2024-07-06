@@ -22,3 +22,18 @@ defined_text = {
 		localization_key = BIS_defensive_pact_loc_init
 	}
 }
+defined_text = {
+	name = BIS_year_loc
+	text = {
+		trigger = {
+			BIS = { check_variable = { BIS_year_loc_year > 0 } }
+		}
+		localization_key = BIS_year_loc_var
+	}
+	text = {
+		trigger = {
+			BIS = { check_variable = { BIS_year_loc_year = 0 } }
+		}
+		localization_key = BIS_year_loc_global
+	}
+}

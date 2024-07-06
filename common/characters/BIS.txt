@@ -1,3 +1,10 @@
 characters={
-	
+	BIS_odilon_trudeau_comm={
+		name=BIS_odilon_trudeau
+		portraits={
+			civilian={
+				large=GFX_portrait_BIS_democratic
+			}
+		}
+	}
 }

@@ -30,6 +30,10 @@
 			log = "[GetDateText]: [Root.GetName]: BIS_state_of_the_republic_address"
 			add_political_power = 80
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -53,6 +57,10 @@
 				ideology = ROOT
 				popularity = 0.1
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -86,6 +94,10 @@
 				modifier = medium_increase
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -116,6 +128,10 @@
 				target = FRA
 				modifier = medium_increase
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -149,6 +165,10 @@
 				custom_effect_tooltip = BIS_defensive_pact_init
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -175,6 +195,10 @@
 				target = BRI
 				modifier = offered_support
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -211,6 +235,10 @@
 				modifier = medium_decrease
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -246,6 +274,10 @@
 				}
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -274,6 +306,10 @@
 				popularity = 0.05
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -298,6 +334,10 @@
 				popularity = 0.1
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -318,6 +358,10 @@
 			log = "[GetDateText]: [Root.GetName]: BIS_state_of_the_economy_address"
 			add_political_power = 25
 			970 = { add_extra_state_shared_building_slots = 1 }
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -343,6 +387,10 @@
 				popularity = 0.05
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -367,6 +415,38 @@
 				popularity = -0.1
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_year_industrial_reforms
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = BIS_denounce_extremism focus = BIS_start_discussions_with_syndicat_rouge }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_start_discussions_with_syndicat_rouge
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_year_industrial_reforms"
+			set_variable = { var = BIS_year_loc_year value = global.year }
+			swap_ideas = {
+				add_idea = BIS_inefficient_economy_imp
+				remove_idea = BIS_inefficient_economy
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -390,6 +470,10 @@
 				days = 300
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -409,6 +493,10 @@
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: BIS_bill_R48"
 			upgrade_economy_law = yes
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -432,6 +520,10 @@
 				idea = BIS_arms_de_cle_grants
 				days = 300
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 	
@@ -468,6 +560,10 @@
 				}
 			}
 		}
+		
+		ai_will_do = {
+			factor = 10
+		}
 	}
 	
 	focus = {
@@ -487,10 +583,193 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: BIS_concessions_to_stalinist_unions"
+			add_political_power = -100
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = huge_increase
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_union_leaders_in_government
+		icon = GFX_focus_generic_communist_industry
+		prerequisite = { focus = BIS_concessions_to_stalinist_unions }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_concessions_to_stalinist_unions
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_union_leaders_in_government"
+			add_political_power = -50
+			swap_ideas = {
+				add_idea = BIS_extremist_unions_politics
+				remove_idea = BIS_extremist_unions
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_official_support_for_unions
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = BIS_concessions_to_stalinist_unions }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_concessions_to_stalinist_unions
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_official_support_for_unions"
+			add_political_power = -40
 			add_popularity = {
 				ideology = communism
-				popularity = 0.08
+				popularity = 0.05
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_radical_reformation
+		icon = GFX_focus_generic_court
+		prerequisite = { focus = BIS_start_discussions_with_syndicat_rouge }
+		x = -2
+		y = 1
+		cost = 8
+		relative_position_id = BIS_start_discussions_with_syndicat_rouge
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_radical_reformation"
+			upgrade_economy_law = yes
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = small_increase
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_invite_french_communists
+		icon = GFX_focus_focus_fra_revolution_utmost
+		prerequisite = { focus = BIS_radical_reformation }
+		x = 0
+		y = 1
+		cost = 8
+		relative_position_id = BIS_radical_reformation
+		
+		available = {}
+		bypass = { NOT = { country_exists = FRA } }
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_invite_french_communists"
+			add_stability = -0.05
+			reverse_add_opinion_modifier = {
+				target = FRA
+				modifier = medium_decrease
+			}
+			FRA = {
+				add_popularity = {
+					ideology = communism
+					popularity = -0.05
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_conservative_communism
+		icon = GFX_focus_SOV_the_comecon
+		prerequisite = { focus = BIS_union_leaders_in_government }
+		prerequisite = { focus = BIS_official_support_for_unions }
+		prerequisite = { focus = BIS_invite_french_communists }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_union_leaders_in_government
+		
+		available = {}
+		bypass = { has_government = communism }
+		mutually_exclusive = { focus = BIS_marxist_communism }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_conservative_communism"
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_marxist_communism
+		icon = GFX_focus_SOV_the_path_of_marxism_leninism
+		prerequisite = { focus = BIS_union_leaders_in_government }
+		prerequisite = { focus = BIS_official_support_for_unions }
+		prerequisite = { focus = BIS_invite_french_communists }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_union_leaders_in_government
+		
+		available = {}
+		bypass = { has_government = communism }
+		mutually_exclusive = { focus = BIS_conservative_communism }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_marxist_communism"
+			
+		}
+		
+		ai_will_do = {
+			factor = 10
 		}
 	}
 }
