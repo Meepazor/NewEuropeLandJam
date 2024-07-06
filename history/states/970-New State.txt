@@ -1,20 +1,205 @@
-
 state={
 	id=970
 	name="STATE_970"
 	history = {
+		owner = BIS
+		add_core_of = BIS
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+			arms_factory = 1
+		}
 		victory_points = {
 			13366 20
 		}
+	}
+	provinces={
+		13363 13364 13366 13367 
+	}
+	manpower=13136195
+	state_category=metropolis
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=971
+	name="STATE_971"
+	history = {
+		owner = BRI
+		add_core_of = BRI
 		victory_points = {
-			13378 15
+			8546 5
+		}
+		buildings = {
+			infrastructure = 3
+			dockyard = 2
+			air_base = 1
+			13365 = {
+				naval_base = 4
+			}
 		}
 	}
 	provinces={
-		8592 5108 5233 5258 8546 8569 8618 13363 13364 13365 13366 13367 13368 13369 13370 13371 13372 13373 13374 13375 13376 13377 13378 13379 13380 13381 13382 13383 13384 13385 13386 13387 13388 13389 13390 13391 13392 13393 13394 13395 13396 
+		13365 13369 8546
 	}
-	manpower=26136195
-	state_category = city
+	manpower=6136195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=972
+	name="STATE_972"
+	history = {
+		owner = SPR
+		add_core_of = GLC
+		add_core_of = SPR
+		victory_points = {
+			13378 15
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+		}
+	}
+	provinces={
+		13376 13378 13379 13377 13375 13374 13373 13372
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=973
+	name="STATE_973"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			13382 3
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+		}
+	}
+	provinces={
+		13381 5258 13382 13383 13380
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=974
+	name="STATE_974"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			13370 3
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 3
+		}
+	}
+	provinces={
+		13368 13370 8569 5108 13371
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=975
+	name="STATE_975"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			13393 3
+		}
+		buildings = {
+			infrastructure = 4
+			industrial_complex = 1
+			arms_factory = 1
+		}
+	}
+	provinces={
+		13395 13394 13392 13393
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=976
+	name="STATE_976"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			13391 3
+		}
+		buildings = {
+			infrastructure = 4
+			arms_factory = 2
+		}
+	}
+	provinces={
+		13387 13396 13391 13388
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=977
+	name="STATE_977"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			13386 10
+		}
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+		}
+	}
+	provinces={
+		13386 13389 8592 13390 13385
+	}
+	manpower=1436195
+	state_category=city
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}
+state={
+	id=978
+	name="STATE_978"
+	history = {
+		owner = BIS
+		add_core_of = BIS
+		victory_points = {
+			8618 5
+		}
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+		}
+	}
+	provinces={
+		5233 13384 8618
+	}
+	manpower=1436195
+	state_category=city
 	buildings_max_level_factor=1.000
 	local_supplies=0.000
 }

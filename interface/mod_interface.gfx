@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_portrait_BRI_democratic"
+		texturefile = "gfx/leaders/BRI_democratic.dds"
+	}
+	spriteType = {
+		name = "GFX_portrait_BIS_democratic"
+		texturefile = "gfx/leaders/BIS_democratic.dds"
+	}
+}

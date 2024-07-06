@@ -1,0 +1,87 @@
+ideas = {
+    country = {
+		BIS_extremist_unions = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = gre_political_instability_communism
+			
+			modifier = {
+				communism_drift = 0.1
+				stability_weekly = -0.001
+				political_power_cost = 0.05
+			}
+		}
+		BIS_great_war_spectator = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = hol_shell_shocked_spectator
+			
+			modifier = {
+				conscription_factor = -0.25
+				land_doctrine_cost_factor = 0.4
+				air_doctrine_cost_factor = 0.4
+				naval_doctrine_cost_factor = 0.4
+				production_speed_arms_factory_factor = -0.2
+			}
+		}
+		BIS_inefficient_economy = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = generic_economic_crisis
+			
+			modifier = {
+				consumer_goods_factor = 0.5
+				production_factory_efficiency_gain_factor = -0.2
+				production_speed_buildings_factor = -0.5
+			}
+		}
+		BIS_bill_R48 = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = generic_production_bonus
+			
+			modifier = {
+				political_advisor_cost_factor = -0.25
+				trade_laws_cost_factor = -0.25
+				mobilization_laws_cost_factor = -0.25
+				economy_cost_factor = -0.25
+			}
+		}
+		BIS_arms_de_cle_grants = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = generic_production_bonus
+			
+			modifier = {
+				production_speed_buildings_factor = 0.25
+				political_power_cost = 0.1
+				stability_weekly = 0.002
+			}
+		}
+    }
+}

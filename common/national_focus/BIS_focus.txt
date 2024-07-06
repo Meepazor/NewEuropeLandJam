@@ -1,0 +1,496 @@
+﻿focus_tree = {
+	id = BIS_focus
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BIS
+		}
+	}
+	
+	default = no
+	reset_on_civilwar = no
+	continuous_focus_position = { x = 3100 y = 1000 }
+
+	initial_show_position = {
+		focus = BIS_state_of_the_republic_address
+	}
+
+	focus = {
+		id = BIS_state_of_the_republic_address
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 10
+		y = 0
+		cost = 8
+		
+		available_if_capitulated = no
+
+		completion_reward = {	
+			log = "[GetDateText]: [Root.GetName]: BIS_state_of_the_republic_address"
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = BIS_biscayan_foreign_affairs
+		icon = GFX_focus_POL_support_global_falangism
+		prerequisite = { focus = BIS_state_of_the_republic_address }
+		x = -5
+		y = 1
+		cost = 8
+		relative_position_id = BIS_state_of_the_republic_address
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_biscayan_foreign_affairs"
+			add_war_support = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_meeting_in_kiev
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		prerequisite = { focus = BIS_biscayan_foreign_affairs }
+		x = 5
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_foreign_affairs
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus = BIS_work_with_france }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_meeting_in_kiev"
+			hidden_effect = { add_threat = 1 }
+			add_popularity = {
+				ideology = SOV
+				popularity = 0.03
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = medium_increase
+			}
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = medium_increase
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_work_with_france
+		icon = GFX_focus_chi_reach_out_to_france
+		prerequisite = { focus = BIS_biscayan_foreign_affairs }
+		x = 3
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_foreign_affairs
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus = BIS_meeting_in_kiev }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_work_with_france"
+			add_popularity = {
+				ideology = FRA
+				popularity = 0.1
+			}
+			add_opinion_modifier = {
+				target = FRA
+				modifier = medium_increase
+			}
+			reverse_add_opinion_modifier = {
+				target = FRA
+				modifier = medium_increase
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_defensive_pact
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = BIS_work_with_france focus = BIS_meeting_in_kiev }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_work_with_france
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_defensive_pact"
+			if = {
+				limit = { has_completed_focus = BIS_meeting_in_kiev }
+				give_guarantee = SOV
+				SOV = { give_guarantee = ROOT }
+			}
+			if = {
+				limit = { has_completed_focus = BIS_work_with_france }
+				give_guarantee = FRA
+				FRA = { give_guarantee = ROOT }
+			}
+			else = {
+				custom_effect_tooltip = BIS_defensive_pact_init
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_reaffirm_guarantee_of_brittany
+		icon = GFX_goal_generic_defence
+		prerequisite = { focus = BIS_biscayan_foreign_affairs }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_foreign_affairs
+		
+		available = { country_exists = BRI }
+		bypass = {}
+		mutually_exclusive = { focus = BIS_nantes_conference }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_reaffirm_guarantee_of_brittany"
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.03
+			}
+			reverse_add_opinion_modifier = {
+				target = BRI
+				modifier = offered_support
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_nantes_conference
+		icon = GFX_goal_generic_dangerous_deal
+		prerequisite = { focus = BIS_biscayan_foreign_affairs }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_foreign_affairs
+		
+		available = { 
+			country_exists = BRI 
+			country_exists = FRA
+		}
+		bypass = {}
+		mutually_exclusive = { focus = BIS_reaffirm_guarantee_of_brittany }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_nantes_conference"
+			hidden_effect = { add_threat = 1 }
+			add_popularity = {
+				ideology = ROOT
+				popularity = -0.03
+			}
+			reverse_add_opinion_modifier = {
+				target = FRA
+				modifier = offered_support
+			}
+			reverse_add_opinion_modifier = {
+				target = BRI
+				modifier = medium_decrease
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_our_claims_on_brittany
+		icon = GFX_goal_generic_more_territorial_claims
+		prerequisite = { focus = BIS_nantes_conference }
+		prerequisite = { focus = BIS_work_with_france focus = BIS_meeting_in_kiev }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_nantes_conference
+		
+		available = { 
+			country_exists = BRI 
+			country_exists = FRA
+		}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_our_claims_on_brittany"
+			add_state_claim = 971
+			add_war_support = 0.05
+			if = {
+				limit = { 
+					has_completed_focus = BIS_meeting_in_kiev 
+					NOT = { has_completed_focus = BIS_nantes_conference }
+				}
+				reverse_add_opinion_modifier = {
+					target = FRA
+					modifier = medium_decrease
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_look_to_britain
+		icon = GFX_focus_chi_british_cooperation
+		prerequisite = { focus = BIS_nantes_conference focus = BIS_reaffirm_guarantee_of_brittany }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_nantes_conference
+		
+		available = { 
+			country_exists = BRI 
+			country_exists = FRA
+			country_exists = ENG
+		}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_look_to_britain"
+			add_political_power = 25
+			add_popularity = {
+				ideology = ENG
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_biscayan_internal_politics
+		icon = GFX_focus_POL_complete_april_constitution
+		prerequisite = { focus = BIS_state_of_the_republic_address }
+		x = 5
+		y = 1
+		cost = 8
+		relative_position_id = BIS_state_of_the_republic_address
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_biscayan_internal_politics"
+			add_stability = 0.05
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_state_of_the_economy_address
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = BIS_biscayan_internal_politics }
+		x = 2
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_internal_politics
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_state_of_the_economy_address"
+			add_political_power = 25
+			970 = { add_extra_state_shared_building_slots = 1 }
+		}
+	}
+	
+	focus = {
+		id = BIS_start_discussions_with_syndicat_rouge
+		icon = GFX_focus_ARG_women_in_industry
+		prerequisite = { focus = BIS_state_of_the_economy_address }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_state_of_the_economy_address
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus = BIS_denounce_extremism }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_start_discussions_with_syndicat_rouge"
+			add_political_power = 30
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_denounce_extremism
+		icon = GFX_focus_spr_crush_the_revolution
+		prerequisite = { focus = BIS_state_of_the_economy_address }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_state_of_the_economy_address
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus = BIS_start_discussions_with_syndicat_rouge }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_denounce_extremism"
+			add_stability = 0.05
+			add_popularity = {
+				ideology = communism
+				popularity = -0.1
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_bill_R48
+		icon = GFX_focus_generic_industrialists
+		prerequisite = { focus = BIS_biscayan_internal_politics }
+		x = -1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_internal_politics
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_bill_R48"
+			add_timed_idea = {
+				idea = BIS_bill_R48
+				days = 300
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_mobilise_the_economy
+		icon = GFX_focus_generic_workers
+		prerequisite = { focus = BIS_bill_R48 }
+		x = 0
+		y = 1
+		cost = 8
+		relative_position_id = BIS_bill_R48
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_bill_R48"
+			upgrade_economy_law = yes
+		}
+	}
+	
+	focus = {
+		id = BIS_arms_de_cle_grants
+		icon = GFX_focus_generic_aircraft_production
+		prerequisite = { focus = BIS_biscayan_internal_politics }
+		x = -3
+		y = 1
+		cost = 8
+		relative_position_id = BIS_biscayan_internal_politics
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_arms_de_cle_grants"
+			add_timed_idea = {
+				idea = BIS_arms_de_cle_grants
+				days = 300
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_open_factories_in_colomoble_and_aurives
+		icon = GFX_goal_generic_construct_mil_factory
+		prerequisite = { focus = BIS_arms_de_cle_grants }
+		x = 0
+		y = 1
+		cost = 8
+		relative_position_id = BIS_arms_de_cle_grants
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_open_factories_in_colomoble_and_aurives"
+			974 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			977 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = BIS_concessions_to_stalinist_unions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		prerequisite = { focus = BIS_start_discussions_with_syndicat_rouge }
+		prerequisite = { focus = BIS_meeting_in_kiev }
+		x = -5
+		y = 1
+		cost = 8
+		relative_position_id = BIS_start_discussions_with_syndicat_rouge
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_concessions_to_stalinist_unions"
+			add_popularity = {
+				ideology = communism
+				popularity = 0.08
+			}
+		}
+	}
+}

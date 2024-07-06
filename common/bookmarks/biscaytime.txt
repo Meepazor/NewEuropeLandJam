@@ -1,0 +1,80 @@
+bookmarks = {
+	bookmark = {
+		name = "BISCAY_NAME"
+		desc = "BISCAY_DESC"
+		date = 1936.1.1.12
+		picture = "GFX_select_date_1939"
+		default_country = "BIS"
+	
+		"FRA"={
+			history = "FRA_GATHERING_STORM_DESC"
+			ideology = democratic
+			available = { NOT = { has_dlc = "La Resistance" } }
+			ideas = {
+				FRA_victors_of_wwi
+				FRA_disjointed_government
+				FRA_protected_by_the_maginot_line
+			}
+			focuses = {
+				FRA_form_the_popular_front
+				FRA_revive_the_national_bloc
+				FRA_france_leads
+			}
+		}
+		"FRA"={
+			history = "FRA_GATHERING_STORM_DESC"
+			ideology = democratic
+			available = { has_dlc = "La Resistance" } 
+			ideas = {
+				FRA_victors_of_wwi
+				FRA_disjointed_government
+				FRA_protected_by_the_maginot_line
+			}
+			focuses = {
+				FRA_invite_communist_ministers
+				FRA_utilize_the_leagues
+				FRA_je_suis_la_deluge
+			}
+		}
+		"BRI"={
+			history = "BRI_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				
+			}
+			focuses = {
+				
+			}
+		}
+		"BIS"={
+			history = "BIS_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				BIS_extremist_unions
+				BIS_great_war_spectator
+				BIS_inefficient_economy
+			}
+			focuses = {
+				
+			}
+		}
+		"SPR"={
+			history = "SPAIN_GATHERING_STORM_DESC"
+			ideology = democratic
+			ideas = {
+				SPR_military_disloyalty
+				SPA_carlism_1
+				SPR_political_violence
+			}
+			focuses = {
+				SPA_caudillo_of_spain
+				SPA_no_compromise_on_carlist_ideals
+				SPR_anarchism_knows_no_borders
+			}
+		}
+		effect = {
+			randomize_weather = 22345 # <- Obligatory in every bookmark !
+			#123 = { rain_light = yes }
+		}
+	}
+}

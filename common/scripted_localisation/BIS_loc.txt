@@ -1,0 +1,24 @@
+defined_text = {
+	name = BIS_defensive_pact_loc
+	text = {
+		trigger = {
+			BIS = { has_completed_focus = BIS_work_with_france }
+		}
+		localization_key = BIS_defensive_pact_loc_fra
+	}
+	text = {
+		trigger = {
+			BIS = { has_completed_focus = BIS_meeting_in_kiev }
+		}
+		localization_key = BIS_defensive_pact_loc_sov
+	}
+	text = {
+		trigger = {
+			NOT = { 
+				BIS = { has_completed_focus = BIS_work_with_france }
+				BIS = { has_completed_focus = BIS_meeting_in_kiev }
+			}
+		}
+		localization_key = BIS_defensive_pact_loc_init
+	}
+}
