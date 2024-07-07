@@ -97,6 +97,10 @@
 		
 		ai_will_do = {
 			factor = 10
+			modifier = {
+				factor = 0
+				has_completed_focus = BIS_denounce_extremism
+			}
 		}
 	}
 	
@@ -390,6 +394,10 @@
 		
 		ai_will_do = {
 			factor = 10
+			modifier = {
+				factor = 0
+				has_completed_focus = BIS_work_with_france
+			}
 		}
 	}
 	
@@ -739,7 +747,49 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: BIS_conservative_communism"
-			
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = yes
+				election_frequency = 60
+				long_name = BIS_socialist_party_name_long
+				name = BIS_socialist_party_name
+			}
+			hidden_effect = {
+				retire_ideology_leader = communism
+				retire_ideology_leader = democratic
+				add_popularity = {
+					ideology = communism
+					popularity = 0.15
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = BIS_conservative_government_long
+					name = BIS_conservative_government
+				}
+				add_country_leader_role = {
+					character = BIS_odilon_trudeau_comm
+					promote_leader = yes
+					country_leader = {
+						ideology = ideology_conservative_communism
+						expire = "1965.1.1.1"
+						traits = {
+							popular_socialist_politician
+							conservative_communist
+						}
+					}
+				}
+				add_country_leader_role = {
+					character = BIS_frank_arnaud
+					promote_leader = yes
+					country_leader = {
+						ideology = conservatism
+						expire = "1965.1.1.1"
+						traits = {
+							likes_allies
+						}
+					}
+				}
+			}
 		}
 		
 		ai_will_do = {
@@ -765,6 +815,14 @@
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: BIS_marxist_communism"
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.15
+			}
 			
 		}
 		

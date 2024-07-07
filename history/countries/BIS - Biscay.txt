@@ -154,6 +154,7 @@ if = {
 }
 
 recruit_character = BIS_odilon_trudeau_comm
+recruit_character = BIS_frank_arnaud
 
 create_country_leader = {
 	name = BIS_odilon_trudeau

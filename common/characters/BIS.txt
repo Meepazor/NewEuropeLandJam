@@ -7,4 +7,12 @@ characters={
 			}
 		}
 	}
+	BIS_frank_arnaud={
+		name=BIS_frank_arnaud
+		portraits={
+			civilian={
+				large=GFX_portrait_BIS_conservative
+			}
+		}
+	}
 }

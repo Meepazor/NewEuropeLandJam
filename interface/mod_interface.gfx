@@ -11,4 +11,8 @@ spriteTypes = {
 		name = "GFX_portrait_BIS_communism"
 		texturefile = "gfx/leaders/BIS_communism.dds"
 	}
+	spriteType = {
+		name = "GFX_portrait_BIS_conservative"
+		texturefile = "gfx/leaders/BIS_conservative.dds"
+	}
 }
