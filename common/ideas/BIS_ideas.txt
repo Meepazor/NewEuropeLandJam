@@ -16,6 +16,20 @@ ideas = {
 				political_power_cost = 0.05
 			}
 		}
+		BIS_extremist_unions_restricted = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = gre_political_instability_communism
+			
+			modifier = {
+				political_power_cost = 0.15
+			}
+		}
 		BIS_extremist_unions_politics = {
 			allowed = {}
 			available = {}
@@ -112,6 +126,38 @@ ideas = {
 				production_speed_buildings_factor = 0.25
 				political_power_cost = 0.1
 				stability_weekly = 0.002
+			}
+		}
+		BIS_further_rights_for_workers = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = generic_production_bonus
+			
+			modifier = {
+				production_factory_max_efficiency_factor = -0.1
+				production_factory_efficiency_gain_factor = 0.2
+				consumer_goods_factor = -0.15
+			}
+		}
+		BIS_bill_E012 = {
+			allowed = {}
+			available = {}
+			allowed_civil_war = { always = yes }
+
+			removal_cost = -1
+			cancel = {}
+			
+			picture = prc_low_popular_support2
+			
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+				consumer_goods_factor = 0.05
 			}
 		}
     }

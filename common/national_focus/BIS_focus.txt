@@ -55,7 +55,7 @@
 			add_war_support = 0.05
 			add_popularity = {
 				ideology = ROOT
-				popularity = 0.1
+				popularity = 0.075
 			}
 		}
 		
@@ -335,7 +335,7 @@
 			add_stability = 0.05
 			add_popularity = {
 				ideology = ROOT
-				popularity = 0.1
+				popularity = 0.075
 			}
 		}
 		
@@ -402,6 +402,34 @@
 	}
 	
 	focus = {
+		id = BIS_further_rights_for_workers
+		icon = GFX_focus_generic_workers_and_farmers_rise
+		prerequisite = { focus = BIS_start_discussions_with_syndicat_rouge }
+		x = 0
+		y = 2
+		cost = 8
+		relative_position_id = BIS_start_discussions_with_syndicat_rouge
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = {}
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_further_rights_for_workers"
+			add_ideas = BIS_further_rights_for_workers
+		}
+		
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_completed_focus = BIS_work_with_france
+			}
+		}
+	}
+	
+	focus = {
 		id = BIS_denounce_extremism
 		icon = GFX_focus_spr_crush_the_revolution
 		prerequisite = { focus = BIS_state_of_the_economy_address }
@@ -422,6 +450,66 @@
 				ideology = communism
 				popularity = -0.1
 			}
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_bill_E012
+		icon = GFX_focus_generic_public_works
+		prerequisite = { focus = BIS_denounce_extremism }
+		x = 0
+		y = 2
+		cost = 8
+		relative_position_id = BIS_denounce_extremism
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus =  }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_denounce_extremism"
+			add_ideas = BIS_bill_E012
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	focus = {
+		id = BIS_union_restriction_act
+		icon = GFX_idea_generic_communism_banned
+		prerequisite = { focus = BIS_denounce_extremism }
+		x = 1
+		y = 1
+		cost = 8
+		relative_position_id = BIS_denounce_extremism
+		
+		available = {}
+		bypass = {}
+		mutually_exclusive = { focus =  }
+		available_if_capitulated = no
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: BIS_denounce_extremism"
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = BIS_extremist_unions_restricted
+					remove_idea = BIS_extremist_unions
+				}
+			}
+			hidden_effect = {
+				remove_ideas = BIS_extremist_unions
+				add_timed_idea = {
+					idea = BIS_extremist_unions_restricted
+					days = 365
+				}
+			}					
 		}
 		
 		ai_will_do = {
